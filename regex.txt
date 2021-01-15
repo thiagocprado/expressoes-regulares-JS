@@ -1,0 +1,64 @@
+para que serve:
+
+Extraindo seções específicas de um arquivo de texto
+Validação de formatação de, por exemplo, e-mail ou telefone
+Análise de arquivos de texto e extração de dados para, por exemplo, gravar no banco de dados
+Substituindo os valores de um texto para limpar, reformatar ou alterar o conteúdo
+
+*Lembrando que o regex não verifica se um e-mail é válido, ele apenas verifica a formatação 
+
+CSV - é um tipo de arquivo de texto que geralmente são analisados por expressões regex
+João Fulano,123.456.789-00,21 de Maio de 1993,(21) 3079-9987,Rua do Ouvidor,50,20040-030,Rio de Janeiro
+
+meta-char: caracteres que possuem um significado especial para o regex engine
+ex:     . o "ponto" que significa qualquer char
+	* o asterisco que serve para definir uma quantidade de chars, zero ou mais vezes
+
+quantifier - { qtde } as chaves que servem para definir uma quantidade de caracteres específicas que é desejado encontrar
+
+\ - "remove o siginificado especial da classe" - \. procura pelo ponto em si 
+
+\d - é uma classe para digitos
+
+? - coloca o caracter como opcional
+
+{x, y} - define a quantidade que pode variar ({0, 1} - pode ter 0 ou 1 caracter)
+
+[] - definimos nossa própria classe de todos os tipos caracteres ([-.] - pode ou não ter '-' ou '.')
+
+podemos juntar [] com ? - []? 
+
+[12356]{3} - podemos fazer condições - no caso, reduzimos a condição para numeros de 1 a 6
+[1-4] - apenas números entre 1 e 4
+
+\s - classe para espaços em branco
+
++ - uma ou mais vezes - \s+ um ou mais espaços em branco
+
+[A-Z] - letras maíusculas de A até Z
+
+[a-z] - letras minúsculas de A até Z
+
+as classes de caracteres não pegam caracteres com acentos 
+
+\w - word char - é um atalho para [A-Za-z0-9_]
+
+âncora - forma de encontrar uma posição dentro do texto
+
+Uma âncora não casa caracteres como as classes fazem, e nem definem quantidades. Âncoras marcam uma posição específica no alvo, por isso não é possível combiná-las com um quantifier.
+Existem várias âncoras predefinidas, mas as mais comuns são ^, $ e \b. Lembrando também que os caracteres ^ e $ são meta-chars.
+
+\b - word boundary - procura limite de conjunto de caracteres - \baaa\b - procura antes e depois da expressão
+^ - no início de uma frase por exemplo
+$ - no final de uma frase por exemplo
+
+
+? - zero ou uma vez
++ - uma ou mais vezes 
+* - zero ou mais vezes
+
+{n} - exatamente 'n' vezes
+{n, } - no minímo 'n' vezes
+{n, k} - no minímo 'n' vezes e no máximo 'k' vezes
+
+ 
